@@ -71,7 +71,11 @@ sudo apt install libgl1 libx11-6 libxcursor1 libxrandr2 libxinerama1 libxi6
 - **Коммерческое использование требует отдельной платной лицензии.**
   Если вы хотите продавать Lyra, включать её в платный продукт или
   использовать в коммерческом сервисе — напишите:
-  **sunsweet733@gmail.com**.
+  **sunsweet733@gmail.com**. Условия и шаблон соглашения — в
+  [`COMMERCIAL.md`](COMMERCIAL.md).
+
+Lyra использует сторонние библиотеки (в первую очередь Fyne, BSD-3-Clause);
+их лицензии перечислены в [`THIRD-PARTY-NOTICES.md`](THIRD-PARTY-NOTICES.md).
 
 ## Обратная связь
 
@@ -81,6 +85,20 @@ sudo apt install libgl1 libx11-6 libxcursor1 libxrandr2 libxinerama1 libxi6
 - ✉️ Почта: **sunsweet733@gmail.com**
 - ☕ Поддержать разработку (мультичейн-адрес):
   `0xCfF2fabe65fD1fFB06A300Ba92EB4a8298d9E797`
+
+## Сборка из исходников
+
+Бинарники собираются автоматически в CI (`.github/workflows/build.yml`):
+Linux — в контейнере `ubuntu:20.04` (совместимость со старым glibc),
+Windows — кросс-компиляцией MinGW, macOS (Intel и Apple Silicon) — нативно.
+Пуш тега `v*` запускает сборку и публикует релиз.
+
+Локально:
+
+```bash
+make check      # тесты
+make dist-all   # linux + windows (+ macOS, если задан OSXCROSS)
+```
 
 ---
 

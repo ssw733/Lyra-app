@@ -17,10 +17,13 @@
 
 | Платформа | Файл |
 |---|---|
+| **Linux — Snap (рекомендуется)** | `sudo snap install lyra-app` |
+| Linux (x64), .deb | `lyra-app_1.0.0_amd64.deb` |
+| Linux (x64), AppImage | `Lyra-1.0.0-x86_64.AppImage` |
+| Linux (x64), бинарник | `lyra-linux-amd64` |
 | Windows 10/11 (x64) | `lyra-windows-amd64.exe` |
 | macOS, Apple Silicon (M1 и новее) | `lyra-darwin-arm64` |
 | macOS, Intel | `lyra-darwin-amd64` |
-| Linux (x64) | `lyra-linux-amd64` |
 
 Контрольные суммы SHA-256 — в `SHA256SUMS.txt` рядом с релизом.
 
@@ -38,7 +41,28 @@ xattr -dr com.apple.quarantine lyra-darwin-arm64
 ./lyra-darwin-arm64
 ```
 
-**Linux.** Нужны библиотеки OpenGL и X11 (обычно уже стоят):
+**Linux (Snap — рекомендуется).** Ставится одной командой, обновляется
+автоматически и несёт свои библиотеки (работает и на старых дистрибутивах):
+
+```bash
+sudo snap install lyra-app
+```
+
+**Linux (.deb).** Debian/Ubuntu:
+
+```bash
+sudo apt install ./lyra-app_1.0.0_amd64.deb
+```
+
+**Linux (AppImage).** Портативно, без установки (нужен glibc ≥ 2.38 —
+Ubuntu 24.04+, Debian 13, Fedora 40+):
+
+```bash
+chmod +x Lyra-1.0.0-x86_64.AppImage
+./Lyra-1.0.0-x86_64.AppImage
+```
+
+**Linux (бинарник).** Нужны библиотеки OpenGL и X11 (обычно уже стоят):
 
 ```bash
 chmod +x lyra-linux-amd64
